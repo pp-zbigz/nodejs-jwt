@@ -1,0 +1,23 @@
+{
+  "name": "nodejs-jwt",
+  "version": "1.0.0",
+  "description": "Try to test jwt on nodejs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pp-zbigz/nodejs-jwt.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pp-zbigz/nodejs-jwt/issues"
+  },
+  "homepage": "https://github.com/pp-zbigz/nodejs-jwt#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
