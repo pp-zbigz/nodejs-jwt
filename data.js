@@ -12,3 +12,5 @@ const data = [
         name: "BonChon"
     }
 ]
+
+module.exports = data;
