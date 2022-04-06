@@ -1,29 +1,52 @@
 const express = require('express');
-
 const router = express.Router();
 
-router.get('/', (req, res) => {
-    res.send('Hello World');
-});
+const restaurants = require('../data');
 
-router.get('', (req, res) => {
-    res.send('GET API');
+let currentRestaurantId = 4;
+
+router.get('/', (req, res) => {
+    res.json(restaurants);
 });
 
 router.get('/:id', (req, res) => {
-    res.send('GET ONE API');
+    const restaurantId = Number.parseInt(req.params.id,10);
+    const restaurant = restaurants.find(
+        (restaurant) => restaurant.Id === restaurantId
+        );
+    res.json(restaurant);
 });
 
 router.post('', (req, res) => {
-    res.send('POST API');
+    currentRestaurantId += 1;
+    const newRestaurant = {
+        id: currentRestaurantId,
+        ...req.body
+    };
+    restaurants.push(newRestaurant);
+    res.json(newRestaurant);
 });
 
 router.put('/:id', (req, res) => {
-    res.send('PUT API');
+    const restaurantId = Number.parseInt(req.params.id,10);
+    const restaurantIndex = restaurants.findIndex(
+        (restaurant) => restaurant.Id === restaurantId
+        );
+    const updatedRestaurant = {
+        id: restaurantId,
+        ...req.body
+    }
+    restaurants[restaurantIndex] = updatedRestaurant;
+    res.json(updatedRestaurant);
 });
 
 router.delete('/:id', (req, res) => {
-    res.send('DELETE API');
+    const restaurantId = Number.parseInt(req.params.id,10);
+    const restaurantIndex = restaurants.findIndex(
+        (restaurant) => restaurant.Id === restaurantId
+        );
+    restaurants.splice(restaurantIndex, 1);
+    res.sendStatus(204);
 });
 
 module.exports = router;
