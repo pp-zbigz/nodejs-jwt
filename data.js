@@ -10,11 +10,11 @@ const data = [
     {
         id: 3,
         name: "BonChon"
-    }
+    },
     {
         id: 4,
         name: "MK"
-    }
+    },
     {
         id: 5,
         name: "Tee noi"
