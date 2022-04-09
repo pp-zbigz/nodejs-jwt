@@ -12,7 +12,6 @@ app.use(express.urlencoded({extended: false }));
 //Custom Middleware
 app.use(logger);
 
-
 // Routes
 app.use('/apis/restaurants', restaurantsRouter);
 
